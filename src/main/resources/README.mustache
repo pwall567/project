@@ -1,0 +1,31 @@
+# {{&name}}
+
+[![Build Status](https://travis-ci.com/pwall567/{{&name}}.svg?branch=main)](https://app.travis-ci.com/github/pwall567/{{&name}})
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+{{#language}}{{#KOTLIN}}[![Kotlin](https://img.shields.io/static/v1?label=Kotlin&message=v1.5.20&color=7f52ff&logo=kotlin&logoColor=7f52ff)](https://github.com/JetBrains/kotlin/releases/tag/v1.5.20)
+{{/KOTLIN}}{{/language}}[![Maven Central](https://img.shields.io/maven-central/v/{{&group}}/{{&name}}?label=Maven%20Central)](https://search.maven.org/search?q=g:%22{{&group}}%22%20AND%20a:%22{{&name}}%22)
+
+## Dependency Specification
+
+The latest version of the library is {{&version}}, and it may be obtained from the Maven Central repository.
+
+### Maven
+```xml
+    <dependency>
+      <groupId>{{&group}}</groupId>
+      <artifactId>{{&name}}</artifactId>
+      <version>{{&version}}</version>
+    </dependency>
+```
+### Gradle
+```groovy
+    implementation '{{&group}}:{{&name}}:{{&version}}'
+```
+### Gradle (kts)
+```kotlin
+    implementation("{{&group}}:{{&name}}:{{&version}}")
+```
+
+Peter Wall
+
+{{&date}}

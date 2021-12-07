@@ -1,0 +1,40 @@
+# project.yaml
+files:
+- name: README.md
+  template: README.mustache
+- name: CHANGELOG.md
+  template: CHANGELOG.mustache
+- name: .gitignore
+  template: .gitignore.mustache
+- name: .travis.yml
+  template: .travis.mustache
+- name: LICENSE
+  template: LICENSE.mustache
+{{#buildTool}}{{#MAVEN}}
+- name: pom.xml
+  template: pom.xml.mustache
+{{/MAVEN}}{{#GRADLE}}
+- name: settings.gradle.kts
+  template: settings.gradle.mustache
+- name: build.gradle.kts
+  template: build.gradle.mustache
+- name: gradle/wrapper/gradle-wrapper.properties
+  template: gradle-wrapper.mustache
+- name: gradle/wrapper/gradle-wrapper.jar
+  binary: gradle-wrapper.jar
+- name: gradlew
+  binary: gradlew
+- name: gradlew.bat
+  binary: gradlew.bat
+{{/GRADLE}}{{/buildTool}}
+{{#language}}{{#KOTLIN}}
+- name: src/main/kotlin/{{&packageDir}}/MainClass.kt
+  template: MainClass.mustache
+- name: src/test/kotlin/{{&packageDir}}/MainClassTest.kt
+  template: MainClassTest.mustache
+{{/KOTLIN}}{{#JAVA}}
+- name: src/main/java/{{&packageDir}}/MainClass.java
+  template: JavaClass.mustache
+- name: src/test/java/{{&packageDir}}/MainClassTest.java
+  template: JavaClassTest.mustache
+{{/JAVA}}{{/language}}

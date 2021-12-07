@@ -1,0 +1,28 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+group = "{{&group}}"
+version = "{{&version}}"
+
+plugins {
+    kotlin("jvm") version("1.5.20")
+    `kotlin-dsl`
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks {
+    withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            languageVersion = "1.5"
+            jvmTarget = "1.8"
+        }
+    }
+}
+
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test-junit"))
+}
